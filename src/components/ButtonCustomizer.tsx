@@ -49,14 +49,29 @@ const fontWeightOptions = [
 
 const gradientPresets = [
   { name: "None", value: "none" },
-  { name: "Purple to Blue", value: "linear-gradient(135deg, #8b5cf6, #3b82f6)" },
-  { name: "Pink to Orange", value: "linear-gradient(135deg, #ec4899, #f97316)" },
+  {
+    name: "Purple to Blue",
+    value: "linear-gradient(135deg, #8b5cf6, #3b82f6)",
+  },
+  {
+    name: "Pink to Orange",
+    value: "linear-gradient(135deg, #ec4899, #f97316)",
+  },
   { name: "Green to Blue", value: "linear-gradient(135deg, #10b981, #3b82f6)" },
   { name: "Red to Pink", value: "linear-gradient(135deg, #ef4444, #ec4899)" },
   { name: "Yellow to Red", value: "linear-gradient(135deg, #eab308, #ef4444)" },
-  { name: "Indigo to Purple", value: "linear-gradient(135deg, #6366f1, #8b5cf6)" },
-  { name: "Sunset", value: "linear-gradient(135deg, #f59e0b, #ef4444, #ec4899)" },
-  { name: "Ocean", value: "linear-gradient(135deg, #06b6d4, #3b82f6, #6366f1)" },
+  {
+    name: "Indigo to Purple",
+    value: "linear-gradient(135deg, #6366f1, #8b5cf6)",
+  },
+  {
+    name: "Sunset",
+    value: "linear-gradient(135deg, #f59e0b, #ef4444, #ec4899)",
+  },
+  {
+    name: "Ocean",
+    value: "linear-gradient(135deg, #06b6d4, #3b82f6, #6366f1)",
+  },
 ];
 
 export function ButtonCustomizer({
@@ -191,94 +206,103 @@ export function ButtonCustomizer({
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-  <div>
-    <Label className="pb-2" htmlFor="backgroundType">
-      Background Style
-    </Label>
-    <Select
-      value={config.backgroundType || "solid"}
-      onValueChange={(value) =>
-        onConfigChange({ backgroundType: value as "solid" | "gradient" })
-      }
-    >
-      <SelectTrigger>
-        <SelectValue />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectItem value="solid">Solid</SelectItem>
-        <SelectItem value="gradient">Gradient</SelectItem>
-      </SelectContent>
-    </Select>
-  </div>
+          <div>
+            <Label className="pb-2" htmlFor="backgroundType">
+              Background Style
+            </Label>
+            <Select
+              value={config.backgroundType || "solid"}
+              onValueChange={(value) =>
+                onConfigChange({
+                  backgroundType: value as "solid" | "gradient",
+                })
+              }
+            >
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="solid">Solid</SelectItem>
+                <SelectItem value="gradient">Gradient</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
-  {config.backgroundType === "gradient" ? (
-    <div className="space-y-2">
-      <Label className="pb-2" htmlFor="gradientBackground">
-        Gradient Preset
-      </Label>
-      <Select
-        value={config.gradientBackground === undefined ? "none" : config.gradientBackground}
-        onValueChange={(value) => {
-          if (value === "none") {
-            onConfigChange({ gradientBackground: undefined });
-          } else {
-            onConfigChange({ gradientBackground: value });
-          }
-        }}
-      >
-        <SelectTrigger>
-          <SelectValue />
-        </SelectTrigger>
-        <SelectContent>
-          {gradientPresets.map((preset) => (
-            <SelectItem key={preset.value} value={preset.value}>
-              {preset.name}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-      <Label className="pb-2" htmlFor="gradientBackgroundCustom">
-        Custom Gradient CSS
-      </Label>
-      <Input
-        id="gradientBackgroundCustom"
-        value={config.gradientBackground || ""}
-        onChange={(e) =>
-          onConfigChange({ gradientBackground: e.target.value === "" ? undefined : e.target.value })
-        }
-        placeholder="e.g., linear-gradient(135deg, #8b5cf6, #3b82f6)"
-      />
-    </div>
-  ) : (
-    <div>
-      <Label className="pb-2" htmlFor="backgroundColor">
-        Background Color
-      </Label>
-      <Input
-        id="backgroundColor"
-        type="color"
-        value={config.backgroundColor}
-        onChange={(e) =>
-          onConfigChange({ backgroundColor: e.target.value })
-        }
-        className="h-10"
-      />
-    </div>
-  )}
+          {config.backgroundType === "gradient" ? (
+            <div className="space-y-2">
+              <Label className="pb-2" htmlFor="gradientBackground">
+                Gradient Preset
+              </Label>
+              <Select
+                value={
+                  config.gradientBackground === undefined
+                    ? "none"
+                    : config.gradientBackground
+                }
+                onValueChange={(value) => {
+                  if (value === "none") {
+                    onConfigChange({ gradientBackground: undefined });
+                  } else {
+                    onConfigChange({ gradientBackground: value });
+                  }
+                }}
+              >
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {gradientPresets.map((preset) => (
+                    <SelectItem key={preset.value} value={preset.value}>
+                      {preset.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Label className="pb-2" htmlFor="gradientBackgroundCustom">
+                Custom Gradient CSS
+              </Label>
+              <Input
+                id="gradientBackgroundCustom"
+                value={config.gradientBackground || ""}
+                onChange={(e) =>
+                  onConfigChange({
+                    gradientBackground:
+                      e.target.value === "" ? undefined : e.target.value,
+                  })
+                }
+                placeholder="e.g., linear-gradient(135deg, #8b5cf6, #3b82f6)"
+              />
+            </div>
+          ) : (
+            <div>
+              <Label className="pb-2" htmlFor="backgroundColor">
+                Background Color
+              </Label>
+              <Input
+                id="backgroundColor"
+                type="color"
+                value={config.backgroundColor}
+                onChange={(e) =>
+                  onConfigChange({ backgroundColor: e.target.value })
+                }
+                className="h-10"
+              />
+            </div>
+          )}
 
-  <div>
-    <Label className="pb-2" htmlFor="textColor">
-      Text Color
-    </Label>
-    <Input
-      id="textColor"
-      type="color"
-      value={config.textColor}
-      onChange={(e) => onConfigChange({ textColor: e.target.value })}
-      className="h-10"
-    />
-  </div>
-</CardContent>
+          <div>
+            <Label className="pb-2" htmlFor="textColor">
+              Text Color
+            </Label>
+            <Input
+              id="textColor"
+              type="color"
+              value={config.textColor}
+              onChange={(e) => onConfigChange({ textColor: e.target.value })}
+              className="h-10"
+            />
+          </div>
+        </CardContent>
       </Card>
 
       {/* Border */}
@@ -335,7 +359,11 @@ export function ButtonCustomizer({
               Shadow Type
             </Label>
             <Select
-              value={config.customShadow && config.customShadow.trim() !== "" ? "custom" : config.shadow}
+              value={
+                config.customShadow && config.customShadow.trim() !== ""
+                  ? "custom"
+                  : config.shadow
+              }
               onValueChange={(value) => {
                 if (value === "custom") return;
                 onConfigChange({ shadow: value, customShadow: "" });
@@ -393,81 +421,94 @@ export function ButtonCustomizer({
           </div>
 
           {config.hoverEffect && (
-  <>
-    <Separator />
-    <div>
-      <Label className="pb-2" htmlFor="hoverBackgroundType">
-        Hover Background Style
-      </Label>
-      <Select
-        value={config.hoverBackgroundType || "solid"}
-        onValueChange={(value) =>
-          onConfigChange({ hoverBackgroundType: value as "solid" | "gradient" })
-        }
-      >
-        <SelectTrigger>
-          <SelectValue />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="solid">Solid</SelectItem>
-          <SelectItem value="gradient">Gradient</SelectItem>
-        </SelectContent>
-      </Select>
-    </div>
-    {config.hoverBackgroundType === "gradient" ? (
-      <div className="space-y-2">
-        <Label className="pb-2" htmlFor="hoverGradientBackground">
-          Hover Gradient Preset
-        </Label>
-        <Select
-          value={config.hoverGradientBackground === undefined ? "none" : config.hoverGradientBackground}
-          onValueChange={(value) => {
-            if (value === "none") {
-              onConfigChange({ hoverGradientBackground: undefined });
-            } else {
-              onConfigChange({ hoverGradientBackground: value });
-            }
-          }}
-        >
-          <SelectTrigger>
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent>
-            {gradientPresets.map((preset) => (
-              <SelectItem key={preset.value} value={preset.value}>
-                {preset.name}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-        <Label className="pb-2" htmlFor="hoverGradientBackgroundCustom">
-          Custom Hover Gradient CSS
-        </Label>
-        <Input
-          id="hoverGradientBackgroundCustom"
-          value={config.hoverGradientBackground || ""}
-          onChange={(e) =>
-            onConfigChange({ hoverGradientBackground: e.target.value === "" ? undefined : e.target.value })
-          }
-          placeholder="e.g., linear-gradient(135deg, #8b5cf6, #3b82f6)"
-        />
-      </div>
-    ) : (
-      <div>
-        <Label className="pb-2" htmlFor="hoverBackgroundColor">
-          Hover Background
-        </Label>
-        <Input
-          id="hoverBackgroundColor"
-          type="color"
-          value={config.hoverBackgroundColor}
-          onChange={(e) =>
-            onConfigChange({ hoverBackgroundColor: e.target.value })
-          }
-          className="h-10"
-        />
-      </div>
-    )}
+            <>
+              <Separator />
+              <div>
+                <Label className="pb-2" htmlFor="hoverBackgroundType">
+                  Hover Background Style
+                </Label>
+                <Select
+                  value={config.hoverBackgroundType || "solid"}
+                  onValueChange={(value) =>
+                    onConfigChange({
+                      hoverBackgroundType: value as "solid" | "gradient",
+                    })
+                  }
+                >
+                  <SelectTrigger>
+  <SelectValue placeholder="None" />
+</SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="solid">Solid</SelectItem>
+                    <SelectItem value="gradient">Gradient</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              {config.hoverBackgroundType === "gradient" ? (
+                <div className="space-y-2">
+                  <Label className="pb-2" htmlFor="hoverGradientBackground">
+                    Hover Gradient Preset
+                  </Label>
+                  <Select
+                    value={
+                      config.hoverGradientBackground === undefined
+                        ? "none"
+                        : config.hoverGradientBackground
+                    }
+                    onValueChange={(value) => {
+                      if (value === "none") {
+                        onConfigChange({ hoverGradientBackground: undefined });
+                      } else {
+                        onConfigChange({ hoverGradientBackground: value });
+                      }
+                    }}
+                  >
+                    <SelectTrigger>
+  <SelectValue placeholder="None" />
+</SelectTrigger>
+                    <SelectContent>
+  <SelectItem value="none">None</SelectItem>
+  {gradientPresets.filter((preset) => preset.value !== "none").map((preset) => (
+    <SelectItem key={preset.value} value={preset.value}>
+      {preset.name}
+    </SelectItem>
+  ))}
+</SelectContent>
+                  </Select>
+                  <Label
+                    className="pb-2"
+                    htmlFor="hoverGradientBackgroundCustom"
+                  >
+                    Custom Hover Gradient CSS
+                  </Label>
+                  <Input
+                    id="hoverGradientBackgroundCustom"
+                    value={config.hoverGradientBackground || ""}
+                    onChange={(e) =>
+                      onConfigChange({
+                        hoverGradientBackground:
+                          e.target.value === "" ? undefined : e.target.value,
+                      })
+                    }
+                    placeholder="e.g., linear-gradient(135deg, #8b5cf6, #3b82f6)"
+                  />
+                </div>
+              ) : (
+                <div>
+                  <Label className="pb-2" htmlFor="hoverBackgroundColor">
+                    Hover Background
+                  </Label>
+                  <Input
+                    id="hoverBackgroundColor"
+                    type="color"
+                    value={config.hoverBackgroundColor}
+                    onChange={(e) =>
+                      onConfigChange({ hoverBackgroundColor: e.target.value })
+                    }
+                    className="h-10"
+                  />
+                </div>
+              )}
 
               <div>
                 <Label className="pb-2" htmlFor="hoverTextColor">

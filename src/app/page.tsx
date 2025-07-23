@@ -53,6 +53,7 @@ const defaultConfig: ButtonConfig = {
   borderRadius: 6,
   fontSize: 14,
   fontWeight: 500,
+  backgroundColor: "#3b82f6",
   textColor: "#ffffff",
   borderWidth: 0,
   borderColor: "#3b82f6",
@@ -60,6 +61,7 @@ const defaultConfig: ButtonConfig = {
   customShadow: "",
   transform: "none",
   hoverEffect: true,
+  hoverBackgroundColor: "#2563eb",
   hoverTextColor: "#ffffff",
   hoverBorderColor: "#2563eb",
   hoverShadow: undefined,
@@ -67,12 +69,6 @@ const defaultConfig: ButtonConfig = {
   transitionDuration: 150,
   transitionTimingFunction: "ease-in-out",
   transitionDelay: 0,
-  backgroundType: "gradient",
-  backgroundColor: "#8b5cf6", // fallback solid color
-  gradientBackground: "linear-gradient(135deg, #8b5cf6, #3b82f6)",
-  hoverBackgroundType: "gradient",
-  hoverBackgroundColor: "#7c3aed", // fallback solid color
-  hoverGradientBackground: "linear-gradient(135deg, #7c3aed, #2563eb)",
   disabled: false,
 };
 
