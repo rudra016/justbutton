@@ -117,7 +117,7 @@ export function ButtonPreview({ config }: ButtonPreviewProps) {
                 background: ${hoverStyles.background} !important;
                 color: ${hoverStyles.color || "inherit"} !important;
                 border-color: ${hoverStyles.borderColor} !important;
-                transform: ${hoverStyles.transform};
+                transform: ${hoverStyles.transform} !important;
                 box-shadow: ${hoverStyles.boxShadow};
               }
               :root {

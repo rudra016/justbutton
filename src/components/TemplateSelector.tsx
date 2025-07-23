@@ -514,10 +514,17 @@ export function TemplateSelector({ onTemplateSelect }: TemplateSelectorProps) {
     };
 
     return (
-      <button style={buttonStyles} className="template-preview-btn">
-        {config.text}
-      </button>
-    );
+  <>
+    <style jsx>{`
+      .template-preview-btn:hover {
+        transform: ${config.hoverTransform || "none"} !important;
+      }
+    `}</style>
+    <button style={buttonStyles} className="template-preview-btn">
+      {config.text}
+    </button>
+  </>
+);
   };
 
   return (
