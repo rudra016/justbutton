@@ -83,7 +83,7 @@ export function ButtonCustomizer({
       {/* Text Content */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-sm font-editorial font-light">
+          <CardTitle className="text-sm font-sans font-light">
             Text Content
           </CardTitle>
         </CardHeader>
@@ -105,7 +105,7 @@ export function ButtonCustomizer({
       {/* Size & Spacing */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-sm font-editorial font-light">
+          <CardTitle className="text-sm font-sans font-light">
             Size & Spacing
           </CardTitle>
         </CardHeader>
@@ -153,7 +153,7 @@ export function ButtonCustomizer({
       {/* Typography */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-sm font-editorial font-light">
+          <CardTitle className="text-sm font-sans font-light">
             Typography
           </CardTitle>
         </CardHeader>
@@ -201,7 +201,7 @@ export function ButtonCustomizer({
       {/* Colors */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-sm font-editorial font-light">
+          <CardTitle className="text-sm font-sans font-light">
             Colors
           </CardTitle>
         </CardHeader>
@@ -308,7 +308,7 @@ export function ButtonCustomizer({
       {/* Border */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-sm font-editorial font-light">
+          <CardTitle className="text-sm font-sans font-light">
             Border
           </CardTitle>
         </CardHeader>
@@ -349,7 +349,7 @@ export function ButtonCustomizer({
       {/* Shadow */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-sm font-editorial font-light">
+          <CardTitle className="text-sm font-sans font-light">
             Shadow
           </CardTitle>
         </CardHeader>
@@ -404,7 +404,7 @@ export function ButtonCustomizer({
       {/* Hover Effects */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-sm font-editorial font-light">
+          <CardTitle className="text-sm font-sans font-light">
             Hover Effects
           </CardTitle>
         </CardHeader>
@@ -561,7 +561,7 @@ export function ButtonCustomizer({
       {/* Transitions */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-sm font-editorial font-light">
+          <CardTitle className="text-sm font-sans font-light">
             Transitions
           </CardTitle>
         </CardHeader>
@@ -622,7 +622,7 @@ export function ButtonCustomizer({
       {/* State */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-sm font-editorial font-light">
+          <CardTitle className="text-sm font-sans font-light">
             State
           </CardTitle>
         </CardHeader>

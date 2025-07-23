@@ -91,7 +91,7 @@ export default function Home() {
       <header className="bg-background dark:bg-background border-b shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <h1 className="flex gap-0 items-center text-2xl text-foreground font-editorial italic font-light">
+            <h1 className="flex gap-0 items-center text-2xl text-foreground font-sans italic font-light">
               <Image
                 src={theme === "dark" ? "/logo-dark.png" : "/logo.png"}
                 alt="Logo"
@@ -135,7 +135,7 @@ export default function Home() {
                   }
                   className="w-full"
                 >
-                  <TabsList className="grid w-full grid-cols-2 mb-1 font-editorial font-light">
+                  <TabsList className="grid w-full grid-cols-2 mb-1 font-sans font-light">
                     <TabsTrigger value="design">Design</TabsTrigger>
                     <TabsTrigger value="templates">Templates</TabsTrigger>
                   </TabsList>

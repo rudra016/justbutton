@@ -108,7 +108,7 @@ export function ButtonPreview({ config }: ButtonPreviewProps) {
       {/* Preview */}
       <Card>
         <CardHeader>
-          <CardTitle className="font-editorial font-light">Preview</CardTitle>
+          <CardTitle className="font-sans font-light">Preview</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex items-center justify-center min-h-[200px] bg-background rounded-lg border-2 border-dashed border-neutral-700">
@@ -149,7 +149,7 @@ export function ButtonPreview({ config }: ButtonPreviewProps) {
       {/* Export Options */}
       <Card>
         <CardHeader>
-          <CardTitle className="font-editorial font-light">
+          <CardTitle className="font-sans font-light">
             Export Code
           </CardTitle>
         </CardHeader>
@@ -206,7 +206,7 @@ export function ButtonPreview({ config }: ButtonPreviewProps) {
       {/* Usage Instructions */}
       <Card>
         <CardHeader>
-          <CardTitle className="font-editorial font-light">
+          <CardTitle className="font-sans font-light">
             Usage Instructions
           </CardTitle>
         </CardHeader>

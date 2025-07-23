@@ -555,7 +555,7 @@ export function TemplateSelector({ onTemplateSelect }: TemplateSelectorProps) {
           className="cursor-pointer hover:shadow-md transition-shadow"
         >
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-editorial font-light">
+            <CardTitle className="text-sm font-sans font-light">
               {template.name}
             </CardTitle>
           </CardHeader>
