@@ -1,4 +1,4 @@
-const site_url = "https://justbutton.vercel.app";
+const site_url = "http://www.justbutton.space/";
 
 export const siteConfig = {
   name: "JustButton",
