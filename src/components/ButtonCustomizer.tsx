@@ -335,8 +335,11 @@ export function ButtonCustomizer({
               Shadow Type
             </Label>
             <Select
-              value={config.shadow}
-              onValueChange={(value) => onConfigChange({ shadow: value })}
+              value={config.customShadow && config.customShadow.trim() !== "" ? "custom" : config.shadow}
+              onValueChange={(value) => {
+                if (value === "custom") return;
+                onConfigChange({ shadow: value, customShadow: "" });
+              }}
             >
               <SelectTrigger>
                 <SelectValue />
@@ -347,6 +350,11 @@ export function ButtonCustomizer({
                     {option.label}
                   </SelectItem>
                 ))}
+                {config.customShadow && config.customShadow.trim() !== "" && (
+                  <SelectItem key="custom" value="custom">
+                    Custom Shadow
+                  </SelectItem>
+                )}
               </SelectContent>
             </Select>
           </div>
