@@ -32,6 +32,14 @@ export interface ButtonConfig {
   borderColor: string;
   shadow: string;
   customShadow: string;
+  shadowHorizontal: number;
+  shadowVertical: number;
+  shadowBlur: number;
+  shadowSpread: number;
+  shadowColor: string;
+  shadowOpacity: number;
+  shadowInset: boolean;
+  customShadowGeneratorOpen: boolean;
   transform: string;
   hoverEffect: boolean;
   hoverBackgroundColor: string;
@@ -60,6 +68,14 @@ const defaultConfig: ButtonConfig = {
   borderColor: "#3b82f6",
   shadow: "sm",
   customShadow: "",
+  shadowHorizontal: 0,
+  shadowVertical: 0,
+  shadowBlur: 8,
+  shadowSpread: 4,
+  shadowColor: "#3b82f6",
+  shadowOpacity: 25,
+  shadowInset: false,
+  customShadowGeneratorOpen: false,
   transform: "none",
   hoverEffect: true,
   hoverBackgroundColor: "#2563eb",
@@ -108,7 +124,9 @@ export default function Home() {
                 className="flex items-center gap-2 px-4 py-1.5 border border-foreground rounded-full bg-transparent hover:bg-white/10 transition-colors text-white font-medium text-sm"
               >
                 <FaGithub className="w-5 h-5 cursor-pointer text-black dark:text-white" />
-                <span className="hidden sm:inline text-black dark:text-white">Contribute here</span>
+                <span className="hidden sm:inline text-black dark:text-white">
+                  Contribute here
+                </span>
               </Link>
               <Link href="https://coff.ee/rudra016" target="_blank">
                 <SiBuymeacoffee className="cursor-pointer text-black dark:text-white" />

@@ -13,31 +13,39 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       variant: "ghost-inset",
       size: "md",
       text: "Ghost Inset",
-      paddingX: 16, 
-      paddingY: 6, 
-      borderRadius: 6, 
-      fontSize: 14, 
+      paddingX: 16,
+      paddingY: 6,
+      borderRadius: 6,
+      fontSize: 14,
       fontWeight: 400,
-      backgroundColor: "#f5f5f5", 
-      textColor: "#1f2937", 
+      backgroundColor: "#f5f5f5",
+      textColor: "#1f2937",
       borderWidth: 1,
-      borderColor: "#d4d4d4", 
+      borderColor: "#d4d4d4",
       shadow: "inset",
       customShadow: "0px 4px 8px 0px var(--color-neutral-300) inset",
+      shadowHorizontal: 0,
+      shadowVertical: 0,
+      shadowBlur: 0,
+      shadowSpread: 0,
+      shadowColor: "",
+      shadowOpacity: 0,
+      shadowInset: false,
+      customShadowGeneratorOpen: false,
       transform: "none",
       hoverEffect: true,
-      hoverBackgroundColor: "#e5e7eb", 
-      hoverTextColor: "#1f2937", 
-      hoverBorderColor: "#d4d4d4", 
+      hoverBackgroundColor: "#e5e7eb",
+      hoverTextColor: "#1f2937",
+      hoverBorderColor: "#d4d4d4",
       hoverShadow: "0px 4px 8px 0px var(--color-neutral-300) inset",
       hoverTransform: "none",
-      transitionDuration: 200, 
+      transitionDuration: 200,
       transitionTimingFunction: "ease-in-out",
       transitionDelay: 0,
       disabled: false,
     },
   },
- 
+
   {
     name: "Invert It",
     config: {
@@ -56,11 +64,19 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
 
       shadow: "none",
       customShadow: "",
+      shadowHorizontal: 0,
+      shadowVertical: 0,
+      shadowBlur: 0,
+      shadowSpread: 0,
+      shadowColor: "",
+      shadowOpacity: 0,
+      shadowInset: false,
+      customShadowGeneratorOpen: false,
 
       transform: "none",
       hoverEffect: true,
       hoverBackgroundColor: "#ffffff",
-      hoverTextColor: "#7c3aed", 
+      hoverTextColor: "#7c3aed",
       hoverBorderColor: "#7c3aed",
       hoverShadow: "none",
       hoverTransform: "none",
@@ -77,33 +93,40 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       variant: "gradient-purple-blue",
       size: "md",
       text: "Purple to Blue",
-      paddingX: 20, 
-      paddingY: 10, 
-      borderRadius: 8, 
-      fontSize: 14, 
-      fontWeight: 500, 
-      backgroundColor: "linear-gradient(to bottom right, #8b5cf6, #3b82f6)", 
+      paddingX: 20,
+      paddingY: 10,
+      borderRadius: 8,
+      fontSize: 14,
+      fontWeight: 500,
+      backgroundColor: "linear-gradient(to bottom right, #8b5cf6, #3b82f6)",
       textColor: "#ffffff",
       borderWidth: 0,
       borderColor: "transparent",
-  
+
       shadow: "none",
       customShadow: "",
-  
+      shadowHorizontal: 0,
+      shadowVertical: 0,
+      shadowBlur: 0,
+      shadowSpread: 0,
+      shadowColor: "",
+      shadowOpacity: 0,
+      shadowInset: false,
+      customShadowGeneratorOpen: false,
       transform: "none",
       hoverEffect: true,
-      hoverBackgroundColor: "linear-gradient(to bottom left, #8b5cf6, #3b82f6)", 
+      hoverBackgroundColor: "linear-gradient(to bottom left, #8b5cf6, #3b82f6)",
       hoverTextColor: "#ffffff",
       hoverBorderColor: "transparent",
       hoverShadow: "none",
       hoverTransform: "none",
-  
+
       transitionDuration: 200,
       transitionTimingFunction: "ease-in-out",
       transitionDelay: 0,
-      disabled: false
-    }
-  },  
+      disabled: false,
+    },
+  },
   {
     name: "NeoGlass Glow",
     config: {
@@ -114,21 +137,28 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       paddingY: 10,
       borderRadius: 12,
       fontSize: 14,
-      fontWeight: 500,  
-      backgroundColor: "rgba(255, 255, 255, 0.1)", 
+      fontWeight: 500,
+      backgroundColor: "rgba(255, 255, 255, 0.1)",
       textColor: "#e0e0e0",
       borderWidth: 1,
       borderColor: "rgba(255, 255, 255, 0.2)",
 
       shadow: "custom",
       customShadow: "inset 0 1px 2px rgba(255, 255, 255, 0.1)",
-
+      shadowHorizontal: 0,
+      shadowVertical: 0,
+      shadowBlur: 0,
+      shadowSpread: 0,
+      shadowColor: "",
+      shadowOpacity: 0,
+      shadowInset: false,
+      customShadowGeneratorOpen: false,
       transform: "none",
       hoverEffect: true,
       hoverBackgroundColor: "rgba(255, 255, 255, 0.15)",
       hoverTextColor: "#ffffff",
-      hoverBorderColor: "#8b5cf6", 
-      hoverShadow: "0 0 12px #8b5cf6", 
+      hoverBorderColor: "#8b5cf6",
+      hoverShadow: "0 0 12px #8b5cf6",
       hoverTransform: "none",
 
       transitionDuration: 300,
@@ -148,29 +178,36 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       borderRadius: 8,
       fontSize: 14,
       fontWeight: 600,
-      backgroundColor: "#0f172a", 
+      backgroundColor: "#0f172a",
       textColor: "#ffffff",
       borderWidth: 1,
-      borderColor: "#1e293b", 
-  
+      borderColor: "#1e293b",
+
       shadow: "custom",
       customShadow: "0px 2px 4px rgba(0, 0, 0, 0.4)",
-  
+      shadowHorizontal: 0,
+      shadowVertical: 0,
+      shadowBlur: 0,
+      shadowSpread: 0,
+      shadowColor: "",
+      shadowOpacity: 0,
+      shadowInset: false,
+      customShadowGeneratorOpen: false,
       transform: "none",
       hoverEffect: true,
       hoverBackgroundColor: "#1e293b",
       hoverTextColor: "#ffffff",
-      hoverBorderColor: "#334155", 
+      hoverBorderColor: "#334155",
       hoverShadow: "0px 6px 20px rgba(0, 0, 0, 0.6)",
       hoverTransform: "translateY(-2px)",
-  
+
       transitionDuration: 200,
       transitionTimingFunction: "ease-in-out",
       transitionDelay: 0,
-      disabled: false
-    }
+      disabled: false,
+    },
   },
-   {
+  {
     name: "Figma Outline",
     config: {
       variant: "figma-outline",
@@ -187,6 +224,14 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       borderColor: "#000000",
       shadow: "none",
       customShadow: "0 0 0 3px #000000 inset",
+      shadowHorizontal: 0,
+      shadowVertical: 0,
+      shadowBlur: 0,
+      shadowSpread: 0,
+      shadowColor: "",
+      shadowOpacity: 0,
+      shadowInset: false,
+      customShadowGeneratorOpen: false,
       transform: "none",
       hoverEffect: true,
       hoverBackgroundColor: "transparent",
@@ -211,27 +256,34 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       borderRadius: 9999,
       fontSize: 14,
       fontWeight: 600,
-      backgroundColor: "#fcd34d", 
+      backgroundColor: "#fcd34d",
       textColor: "#000000",
       borderWidth: 2,
-      borderColor: "#facc15", 
-  
+      borderColor: "#facc15",
+
       shadow: "custom",
       customShadow: "0px 0px 0px rgba(0,0,0,0)",
-  
+      shadowHorizontal: 0,
+      shadowVertical: 0,
+      shadowBlur: 0,
+      shadowSpread: 0,
+      shadowColor: "",
+      shadowOpacity: 0,
+      shadowInset: false,
+      customShadowGeneratorOpen: false,
       transform: "none",
       hoverEffect: true,
-      hoverBackgroundColor: "#a78bfa", 
+      hoverBackgroundColor: "#a78bfa",
       hoverTextColor: "#ffffff",
-      hoverBorderColor: "#8b5cf6", 
+      hoverBorderColor: "#8b5cf6",
       hoverShadow: "0 4px 12px rgba(139, 92, 246, 0.4)",
       hoverTransform: "scale(1.05)",
-  
+
       transitionDuration: 150,
       transitionTimingFunction: "ease-in-out",
       transitionDelay: 0,
-      disabled: false
-    }
+      disabled: false,
+    },
   },
   {
     name: "Monochrome Switch",
@@ -248,10 +300,17 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       textColor: "#ffffff",
       borderWidth: 1,
       borderColor: "#000000",
-  
+
       shadow: "none",
       customShadow: "",
-  
+      shadowHorizontal: 0,
+      shadowVertical: 0,
+      shadowBlur: 0,
+      shadowSpread: 0,
+      shadowColor: "",
+      shadowOpacity: 0,
+      shadowInset: false,
+      customShadowGeneratorOpen: false,
       transform: "none",
       hoverEffect: true,
       hoverBackgroundColor: "#ffffff",
@@ -259,12 +318,12 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       hoverBorderColor: "#000000",
       hoverShadow: "none",
       hoverTransform: "none",
-  
+
       transitionDuration: 200,
       transitionTimingFunction: "ease",
       transitionDelay: 0,
-      disabled: false
-    }
+      disabled: false,
+    },
   },
   {
     name: "Cyber Pulse",
@@ -278,13 +337,20 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       fontSize: 14,
       fontWeight: 600,
       backgroundColor: "#ffffff", // true black
-      textColor: "#22d3ee",       // cyan-400
+      textColor: "#22d3ee", // cyan-400
       borderWidth: 1,
-      borderColor: "#0ea5e9",     // sky-500
-  
+      borderColor: "#0ea5e9", // sky-500
+
       shadow: "custom",
       customShadow: "0 0 10px #22d3ee",
-  
+      shadowHorizontal: 0,
+      shadowVertical: 0,
+      shadowBlur: 0,
+      shadowSpread: 0,
+      shadowColor: "",
+      shadowOpacity: 0,
+      shadowInset: false,
+      customShadowGeneratorOpen: false,
       transform: "none",
       hoverEffect: true,
       hoverBackgroundColor: "#ffffff",
@@ -292,13 +358,13 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       hoverBorderColor: "#67e8f9",
       hoverShadow: "0 0 20px #67e8f9, 0 0 40px #67e8f9",
       hoverTransform: "scale(1.03)",
-  
+
       transitionDuration: 300,
       transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
       transitionDelay: 0,
-      disabled: false
-    }
-  },    
+      disabled: false,
+    },
+  },
   {
     name: "Frozen Glass Pop",
     config: {
@@ -314,10 +380,17 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       textColor: "#e0f2fe", // light blue
       borderWidth: 1,
       borderColor: "rgba(255, 255, 255, 0.15)",
-  
+
       shadow: "custom",
       customShadow: "inset 0 0 4px rgba(255, 255, 255, 0.1)",
-  
+      shadowHorizontal: 0,
+      shadowVertical: 0,
+      shadowBlur: 0,
+      shadowSpread: 0,
+      shadowColor: "",
+      shadowOpacity: 0,
+      shadowInset: false,
+      customShadowGeneratorOpen: false,
       transform: "none",
       hoverEffect: true,
       hoverBackgroundColor: "rgba(255, 255, 255, 0.15)",
@@ -325,13 +398,13 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       hoverBorderColor: "#7dd3fc", // sky-300
       hoverShadow: "0 0 30px rgba(125, 211, 252, 0.5)",
       hoverTransform: "scale(1.04)",
-  
+
       transitionDuration: 300,
       transitionTimingFunction: "ease-in-out",
       transitionDelay: 0,
-      disabled: false
-    }
-  },  
+      disabled: false,
+    },
+  },
   {
     name: "Top Gradient",
     config: {
@@ -350,7 +423,14 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
 
       shadow: "custom",
       customShadow: "0 -2px 4px 0 #8b5cf6", // top glow effect (like top inset or gradient illusion)
-
+      shadowHorizontal: 0,
+      shadowVertical: 0,
+      shadowBlur: 0,
+      shadowSpread: 0,
+      shadowColor: "",
+      shadowOpacity: 0,
+      shadowInset: false,
+      customShadowGeneratorOpen: false,
       transform: "none",
       hoverEffect: true,
       hoverBackgroundColor: "#1f1f1f",
@@ -383,6 +463,14 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       borderColor: "#00ff88",
       shadow: "none",
       customShadow: "0 0 10px #00ff88, inset 0 0 10px rgba(0, 255, 136, 0.1)",
+      shadowHorizontal: 0,
+      shadowVertical: 0,
+      shadowBlur: 0,
+      shadowSpread: 0,
+      shadowColor: "",
+      shadowOpacity: 0,
+      shadowInset: false,
+      customShadowGeneratorOpen: false,
       transform: "none",
       hoverEffect: true,
       hoverBackgroundColor: "#00ff88",
@@ -413,6 +501,14 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       borderColor: "#f59e0b",
       shadow: "md",
       customShadow: "",
+      shadowHorizontal: 0,
+      shadowVertical: 0,
+      shadowBlur: 0,
+      shadowSpread: 0,
+      shadowColor: "",
+      shadowOpacity: 0,
+      shadowInset: false,
+      customShadowGeneratorOpen: false,
       transform: "none",
       hoverEffect: true,
       hoverBackgroundColor: "#d97706",
@@ -443,6 +539,14 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       borderColor: "rgba(255, 255, 255, 0.3)",
       shadow: "lg",
       customShadow: "",
+      shadowHorizontal: 0,
+      shadowVertical: 0,
+      shadowBlur: 0,
+      shadowSpread: 0,
+      shadowColor: "",
+      shadowOpacity: 0,
+      shadowInset: false,
+      customShadowGeneratorOpen: false,
       transform: "none",
       hoverEffect: true,
       hoverBackgroundColor: "rgba(255, 255, 255, 0.3)",
@@ -473,6 +577,14 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       borderColor: "#ffffff",
       shadow: "xl",
       customShadow: "4px 4px 0px #1f2937",
+      shadowHorizontal: 0,
+      shadowVertical: 0,
+      shadowBlur: 0,
+      shadowSpread: 0,
+      shadowColor: "",
+      shadowOpacity: 0,
+      shadowInset: false,
+      customShadowGeneratorOpen: false,
       transform: "none",
       hoverEffect: true,
       hoverBackgroundColor: "#db2777",
@@ -514,17 +626,17 @@ export function TemplateSelector({ onTemplateSelect }: TemplateSelectorProps) {
     };
 
     return (
-  <>
-    <style jsx>{`
-      .template-preview-btn:hover {
-        transform: ${config.hoverTransform || "none"} !important;
-      }
-    `}</style>
-    <button style={buttonStyles} className="template-preview-btn">
-      {config.text}
-    </button>
-  </>
-);
+      <>
+        <style jsx>{`
+          .template-preview-btn:hover {
+            transform: ${config.hoverTransform || "none"} !important;
+          }
+        `}</style>
+        <button style={buttonStyles} className="template-preview-btn">
+          {config.text}
+        </button>
+      </>
+    );
   };
 
   return (
@@ -560,12 +672,10 @@ export function TemplateSelector({ onTemplateSelect }: TemplateSelectorProps) {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            
             <div className="flex justify-center p-4 bg-gray-50 rounded-lg">
               {renderPreviewButton(template.config)}
             </div>
 
-            
             <Button
               variant="outline"
               size="sm"

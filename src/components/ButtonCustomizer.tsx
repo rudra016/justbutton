@@ -12,12 +12,19 @@ import {
 import { Switch } from "@/components/ui/switch";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Checkbox } from "./ui/checkbox";
 
 interface ButtonCustomizerProps {
   config: ButtonConfig;
   onConfigChange: (config: Partial<ButtonConfig>) => void;
 }
 
+function hexToRgb(hex: string) {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`
+    : "0, 0, 0";
+}
 const shadowOptions = [
   { value: "none", label: "None" },
   { value: "sm", label: "Small" },
@@ -78,6 +85,19 @@ export function ButtonCustomizer({
   config,
   onConfigChange,
 }: ButtonCustomizerProps) {
+  const buildShadow = (config: ButtonConfig, opacityOverride?: number) => {
+    const alpha = (opacityOverride ?? config.shadowOpacity) / 100;
+    const inset = config.shadowInset ? "inset " : "";
+    return `${inset}${config.shadowHorizontal}px ${config.shadowVertical}px ${config.shadowBlur}px ${config.shadowSpread}px rgba(${hexToRgb(config.shadowColor)}, ${alpha})`;
+  };
+  const handleShadowUpdate = (partialConfig: Partial<ButtonConfig>) => {
+    const updatedConfig = { ...config, ...partialConfig };
+    onConfigChange({
+      ...partialConfig,
+      customShadow: buildShadow(updatedConfig),
+    });
+  };
+
   return (
     <div className="space-y-6">
       <Card>
@@ -197,9 +217,7 @@ export function ButtonCustomizer({
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-sm font-sans font-light">
-            Colors
-          </CardTitle>
+          <CardTitle className="text-sm font-sans font-light">Colors</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
@@ -303,9 +321,7 @@ export function ButtonCustomizer({
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-sm font-sans font-light">
-            Border
-          </CardTitle>
+          <CardTitle className="text-sm font-sans font-light">Border</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
@@ -343,9 +359,7 @@ export function ButtonCustomizer({
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-sm font-sans font-light">
-            Shadow
-          </CardTitle>
+          <CardTitle className="text-sm font-sans font-light">Shadow</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
@@ -392,6 +406,113 @@ export function ButtonCustomizer({
               placeholder="e.g., 0 4px 6px rgba(0,0,0,0.1)"
             />
           </div>
+          <div className="flex gap-4 items-center">
+            <Label htmlFor="customShadow">Shadow Generator</Label>
+            <Checkbox
+              id="customShadowGenerator"
+              checked={config.customShadowGeneratorOpen}
+              onCheckedChange={(checked) =>
+                handleShadowUpdate({
+                  customShadowGeneratorOpen: Boolean(checked),
+                })
+              }
+            />
+          </div>
+          {config.customShadowGeneratorOpen && (
+            <div className="space-y-4">
+              <div>
+                <Label>Horizontal: {config.shadowHorizontal}px</Label>
+                <Slider
+                  value={[config.shadowHorizontal]}
+                  onValueChange={([value]) =>
+                    handleShadowUpdate({ shadowHorizontal: value })
+                  }
+                  max={50}
+                  min={-50}
+                  step={1}
+                  className="mt-2"
+                />
+              </div>
+
+              <div>
+                <Label>Vertical: {config.shadowVertical}px</Label>
+                <Slider
+                  value={[config.shadowVertical]}
+                  onValueChange={([value]) =>
+                    handleShadowUpdate({ shadowVertical: value })
+                  }
+                  max={50}
+                  min={-50}
+                  step={1}
+                  className="mt-2"
+                />
+              </div>
+
+              <div>
+                <Label>Blur: {config.shadowBlur}px</Label>
+                <Slider
+                  value={[config.shadowBlur]}
+                  onValueChange={([value]) =>
+                    handleShadowUpdate({ shadowBlur: value })
+                  }
+                  max={100}
+                  min={0}
+                  step={1}
+                  className="mt-2"
+                />
+              </div>
+
+              <div>
+                <Label>Spread: {config.shadowSpread}px</Label>
+                <Slider
+                  value={[config.shadowSpread]}
+                  onValueChange={([value]) =>
+                    handleShadowUpdate({ shadowSpread: value })
+                  }
+                  max={50}
+                  min={-50}
+                  step={1}
+                  className="mt-2"
+                />
+              </div>
+
+              <div>
+                <Label className="pb-2">Shadow Color</Label>
+                <Input
+                  type="color"
+                  value={config.shadowColor}
+                  onChange={(e) =>
+                    handleShadowUpdate({ shadowColor: e.target.value })
+                  }
+                  className="h-10 w-16"
+                />
+              </div>
+              <div>
+                <Label>Opacity: {config.shadowOpacity}%</Label>
+                <Slider
+                  value={[config.shadowOpacity]}
+                  onValueChange={([value]) =>
+                    handleShadowUpdate({ shadowOpacity: value })
+                  }
+                  max={100}
+                  min={0}
+                  step={1}
+                  className="mt-2"
+                />
+              </div>
+              <div className="flex items-center space-x-2">
+                <Label htmlFor="shadowInset">Inset Shadow</Label>
+
+                <Switch
+                  id="shadowInset"
+                  checked={config.shadowInset}
+                  onCheckedChange={(checked) =>
+                    handleShadowUpdate({ shadowInset: checked })
+                  }
+                />
+              </div>
+            </div>
+          )}
         </CardContent>
       </Card>
 
@@ -429,8 +550,8 @@ export function ButtonCustomizer({
                   }
                 >
                   <SelectTrigger>
-  <SelectValue placeholder="None" />
-</SelectTrigger>
+                    <SelectValue placeholder="None" />
+                  </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="solid">Solid</SelectItem>
                     <SelectItem value="gradient">Gradient</SelectItem>
@@ -457,16 +578,18 @@ export function ButtonCustomizer({
                     }}
                   >
                     <SelectTrigger>
-  <SelectValue placeholder="None" />
-</SelectTrigger>
+                      <SelectValue placeholder="None" />
+                    </SelectTrigger>
                     <SelectContent>
-  <SelectItem value="none">None</SelectItem>
-  {gradientPresets.filter((preset) => preset.value !== "none").map((preset) => (
-    <SelectItem key={preset.value} value={preset.value}>
-      {preset.name}
-    </SelectItem>
-  ))}
-</SelectContent>
+                      <SelectItem value="none">None</SelectItem>
+                      {gradientPresets
+                        .filter((preset) => preset.value !== "none")
+                        .map((preset) => (
+                          <SelectItem key={preset.value} value={preset.value}>
+                            {preset.name}
+                          </SelectItem>
+                        ))}
+                    </SelectContent>
                   </Select>
                   <Label
                     className="pb-2"
@@ -613,9 +736,7 @@ export function ButtonCustomizer({
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-sm font-sans font-light">
-            State
-          </CardTitle>
+          <CardTitle className="text-sm font-sans font-light">State</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex items-center space-x-2">
