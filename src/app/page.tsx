@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import { useTheme } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-switcher";
+import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiBuymeacoffee } from "react-icons/si";
 import Link from "next/link";
@@ -101,6 +102,14 @@ export default function Home() {
               JustButton
             </h1>
             <div className="flex items-center gap-4">
+              <Link
+                href="https://github.com/rudra016/justbutton"
+                target="_blank"
+                className="flex items-center gap-2 px-4 py-1.5 border border-foreground rounded-full bg-transparent hover:bg-white/10 transition-colors text-white font-medium text-sm"
+              >
+                <FaGithub className="w-5 h-5 cursor-pointer text-black dark:text-white" />
+                <span className="hidden sm:inline text-black dark:text-white">Contribute here</span>
+              </Link>
               <Link href="https://coff.ee/rudra016" target="_blank">
                 <SiBuymeacoffee className="cursor-pointer text-black dark:text-white" />
               </Link>
