@@ -9,11 +9,10 @@
     "lint": "next lint"
   },
   "keywords": [
-    "aceternityui",
-    "mcp",
-    "model context protocol",
-    "typescript",
-    "claude"
+    "button",
+    "button generator",
+    "button code generator",
+    "tailwind button generator"
   ],
   "license": "MIT",
   "dependencies": {
