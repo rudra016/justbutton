@@ -106,7 +106,9 @@ export function ButtonPreview({ config }: ButtonPreviewProps) {
     <div className="space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle className="font-sans font-light">Preview</CardTitle>
+          <CardTitle className="font-sans font-light">
+            Preview (Press the button for a surprise sound)
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex items-center justify-center min-h-[200px] bg-background rounded-lg border-2 border-dashed border-neutral-700">
@@ -146,9 +148,7 @@ export function ButtonPreview({ config }: ButtonPreviewProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle className="font-sans font-light">
-            Export Code
-          </CardTitle>
+          <CardTitle className="font-sans font-light">Export Code</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex space-x-2">
