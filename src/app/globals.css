@@ -3,6 +3,18 @@
 
 @custom-variant dark (&:is(.dark *));
 
+:root {
+  --theme-transition-duration: 200ms;
+  --theme-transition-timing: ease-in-out;
+}
+
+/* Apply smooth transitions to theme-related properties */
+.theme-transition * {
+  transition-property: background-color, color, border-color, fill, stroke;
+  transition-duration: var(--theme-transition-duration);
+  transition-timing-function: var(--theme-transition-timing);
+}
+
 @font-face {
   font-family: "Editorial New";
   src: url("/fonts/editorial-new/PPEditorialNew-Regular.otf") format("opentype");
