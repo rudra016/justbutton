@@ -16,7 +16,41 @@ export function generateButtonCode(config: ButtonConfig, exportType: 'react' | '
 function generateReactCode(config: ButtonConfig): string {
   const className = generateTailwindClasses(config);
   const inlineStyles = generateInlineStyles(config);
+  const hoverStyles = generateHoverStyles(config);
   
+  // Create complete styles objects that include all properties that might change
+  const createCompleteStylesObjects = () => {
+    if (!config.hoverEffect || Object.keys(hoverStyles).length === 0) {
+      return '';
+    }
+
+    // Create a complete base styles object that includes reset values for hover properties
+    const completeBaseStyles = { ...inlineStyles };
+    const completeHoverStyles = { ...inlineStyles, ...hoverStyles };
+
+    // Ensure transform is properly handled
+    if (hoverStyles.transform && !completeBaseStyles.transform) {
+      completeBaseStyles.transform = 'none';
+    }
+
+    return `
+  const baseStyles = ${JSON.stringify(completeBaseStyles, null, 4)};
+  
+  const hoverStyles = ${JSON.stringify(completeHoverStyles, null, 4)};
+
+  const handleMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
+    Object.assign(e.currentTarget.style, hoverStyles);
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
+    Object.assign(e.currentTarget.style, baseStyles);
+  };`;
+  };
+
+  const styleHandlers = createCompleteStylesObjects();
+  const baseStylesDeclaration = styleHandlers ? '' : `
+  const baseStyles = ${JSON.stringify(inlineStyles, null, 4)};`;
+
   return `import React from 'react';
 
 interface CustomButtonProps {
@@ -31,11 +65,14 @@ export function CustomButton({
   onClick, 
   disabled = ${config.disabled}, 
   className = "" 
-}: CustomButtonProps) {
+}: CustomButtonProps) {${baseStylesDeclaration}${styleHandlers}
+
   return (
     <button
       className={\`${className} \${className}\`}
-      style={${JSON.stringify(inlineStyles, null, 8)}}
+      style={baseStyles}
+      ${config.hoverEffect && Object.keys(hoverStyles).length > 0 ? `onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}` : ''}
       onClick={onClick}
       disabled={disabled}
     >
