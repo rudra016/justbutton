@@ -62,7 +62,6 @@ export function ButtonPreview({ config }: ButtonPreviewProps) {
     opacity: config.disabled ? 0.5 : 1,
   };
 
-  // For inline hover effect simulation
   const hoverStyles = config.hoverEffect
     ? {
         background:
@@ -105,7 +104,6 @@ export function ButtonPreview({ config }: ButtonPreviewProps) {
 
   return (
     <div className="space-y-6">
-      {/* Preview */}
       <Card>
         <CardHeader>
           <CardTitle className="font-sans font-light">Preview</CardTitle>
@@ -146,7 +144,6 @@ export function ButtonPreview({ config }: ButtonPreviewProps) {
         </CardContent>
       </Card>
 
-      {/* Export Options */}
       <Card>
         <CardHeader>
           <CardTitle className="font-sans font-light">
@@ -154,7 +151,6 @@ export function ButtonPreview({ config }: ButtonPreviewProps) {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          {/* Export Type Selector */}
           <div className="flex space-x-2">
             {(["react", "html", "css"] as const).map((type) => (
               <Button
@@ -168,13 +164,11 @@ export function ButtonPreview({ config }: ButtonPreviewProps) {
             ))}
           </div>
 
-          {/* Code Display */}
           <div className="relative">
             <pre className="bg-background text-foreground p-4 rounded-lg text-sm overflow-x-auto max-h-96">
               <code>{generateButtonCode(config, exportType)}</code>
             </pre>
 
-            {/* Action Buttons */}
             <div className="absolute top-2 right-2 flex space-x-2">
               <Button
                 size="sm"
@@ -203,7 +197,6 @@ export function ButtonPreview({ config }: ButtonPreviewProps) {
         </CardContent>
       </Card>
 
-      {/* Usage Instructions */}
       <Card>
         <CardHeader>
           <CardTitle className="font-sans font-light">

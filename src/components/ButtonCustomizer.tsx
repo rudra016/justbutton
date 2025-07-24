@@ -80,7 +80,6 @@ export function ButtonCustomizer({
 }: ButtonCustomizerProps) {
   return (
     <div className="space-y-6">
-      {/* Text Content */}
       <Card>
         <CardHeader>
           <CardTitle className="text-sm font-sans font-light">
@@ -102,7 +101,6 @@ export function ButtonCustomizer({
         </CardContent>
       </Card>
 
-      {/* Size & Spacing */}
       <Card>
         <CardHeader>
           <CardTitle className="text-sm font-sans font-light">
@@ -150,7 +148,6 @@ export function ButtonCustomizer({
         </CardContent>
       </Card>
 
-      {/* Typography */}
       <Card>
         <CardHeader>
           <CardTitle className="text-sm font-sans font-light">
@@ -198,7 +195,6 @@ export function ButtonCustomizer({
         </CardContent>
       </Card>
 
-      {/* Colors */}
       <Card>
         <CardHeader>
           <CardTitle className="text-sm font-sans font-light">
@@ -305,7 +301,6 @@ export function ButtonCustomizer({
         </CardContent>
       </Card>
 
-      {/* Border */}
       <Card>
         <CardHeader>
           <CardTitle className="text-sm font-sans font-light">
@@ -346,7 +341,6 @@ export function ButtonCustomizer({
         </CardContent>
       </Card>
 
-      {/* Shadow */}
       <Card>
         <CardHeader>
           <CardTitle className="text-sm font-sans font-light">
@@ -401,7 +395,6 @@ export function ButtonCustomizer({
         </CardContent>
       </Card>
 
-      {/* Hover Effects */}
       <Card>
         <CardHeader>
           <CardTitle className="text-sm font-sans font-light">
@@ -558,7 +551,6 @@ export function ButtonCustomizer({
         </CardContent>
       </Card>
 
-      {/* Transitions */}
       <Card>
         <CardHeader>
           <CardTitle className="text-sm font-sans font-light">
@@ -619,7 +611,6 @@ export function ButtonCustomizer({
         </CardContent>
       </Card>
 
-      {/* State */}
       <Card>
         <CardHeader>
           <CardTitle className="text-sm font-sans font-light">

@@ -87,7 +87,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen pb-80 bg-background dark:bg-background">
-      {/* Header */}
       <header className="bg-background dark:bg-background border-b shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -101,9 +100,6 @@ export default function Home() {
               />
               JustButton
             </h1>
-            {/* <div className="text-sm text-muted-foreground">
-              Design and export custom Tailwind buttons
-            </div> */}
             <div className="flex items-center gap-4">
               <Link href="https://coff.ee/rudra016" target="_blank">
                 <SiBuymeacoffee className="cursor-pointer text-black dark:text-white" />
@@ -117,16 +113,13 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Sidebar */}
           <div className="lg:col-span-4 xl:col-span-3">
             <div
               className="bg-background rounded-lg shadow-sm border dark:border-neutral-700 sticky top-8"
               style={{ height: "calc(100vh - 8rem)", maxHeight: "800px" }}
             >
-              {/* Tabs Header */}
               <div className="p-6 border-b dark:border-neutral-700">
                 <Tabs
                   value={activeTab}
@@ -141,8 +134,6 @@ export default function Home() {
                   </TabsList>
                 </Tabs>
               </div>
-
-              {/* Scrollable Tab Content with fog effect */}
 
               <div
                 className="overflow-y-auto"
@@ -174,7 +165,6 @@ export default function Home() {
               <div className="absolute bottom-0 rounded-b-lg left-0 w-full h-10 bg-gradient-to-t from-background to-transparent pointer-events-none z-10" />
             </div>
           </div>
-          {/* Preview Area */}
           <div className="lg:col-span-8 xl:col-span-9">
             <div style={{ maxHeight: "800px" }}>
               <ButtonPreview config={config} />

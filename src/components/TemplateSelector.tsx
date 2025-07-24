@@ -13,25 +13,25 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       variant: "ghost-inset",
       size: "md",
       text: "Ghost Inset",
-      paddingX: 16, // Tailwind `px-4` = 1rem = 16px
-      paddingY: 6, // Tailwind `py-1.5` = 0.375rem = 6px
-      borderRadius: 6, // `rounded-md` ≈ 6px
-      fontSize: 14, // `text-sm` ≈ 14px
+      paddingX: 16, 
+      paddingY: 6, 
+      borderRadius: 6, 
+      fontSize: 14, 
       fontWeight: 400,
-      backgroundColor: "#f5f5f5", // neutral-100
-      textColor: "#1f2937", // neutral-800
+      backgroundColor: "#f5f5f5", 
+      textColor: "#1f2937", 
       borderWidth: 1,
-      borderColor: "#d4d4d4", // neutral-300
+      borderColor: "#d4d4d4", 
       shadow: "inset",
       customShadow: "0px 4px 8px 0px var(--color-neutral-300) inset",
       transform: "none",
       hoverEffect: true,
-      hoverBackgroundColor: "#e5e7eb", // neutral-200
-      hoverTextColor: "#1f2937", // stays same
-      hoverBorderColor: "#d4d4d4", // remains same
+      hoverBackgroundColor: "#e5e7eb", 
+      hoverTextColor: "#1f2937", 
+      hoverBorderColor: "#d4d4d4", 
       hoverShadow: "0px 4px 8px 0px var(--color-neutral-300) inset",
       hoverTransform: "none",
-      transitionDuration: 200, // Tailwind `transition-colors` default
+      transitionDuration: 200, 
       transitionTimingFunction: "ease-in-out",
       transitionDelay: 0,
       disabled: false,
@@ -60,7 +60,7 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       transform: "none",
       hoverEffect: true,
       hoverBackgroundColor: "#ffffff",
-      hoverTextColor: "#7c3aed", // violet-600
+      hoverTextColor: "#7c3aed", 
       hoverBorderColor: "#7c3aed",
       hoverShadow: "none",
       hoverTransform: "none",
@@ -77,12 +77,12 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       variant: "gradient-purple-blue",
       size: "md",
       text: "Purple to Blue",
-      paddingX: 20, // px-5 = 1.25rem = 20px
-      paddingY: 10, // py-2.5 = 0.625rem = 10px
-      borderRadius: 8, // rounded-lg ≈ 8px
-      fontSize: 14, // text-sm
-      fontWeight: 500, // font-medium
-      backgroundColor: "linear-gradient(to bottom right, #8b5cf6, #3b82f6)", // from-purple-600 to-blue-500
+      paddingX: 20, 
+      paddingY: 10, 
+      borderRadius: 8, 
+      fontSize: 14, 
+      fontWeight: 500, 
+      backgroundColor: "linear-gradient(to bottom right, #8b5cf6, #3b82f6)", 
       textColor: "#ffffff",
       borderWidth: 0,
       borderColor: "transparent",
@@ -92,7 +92,7 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
   
       transform: "none",
       hoverEffect: true,
-      hoverBackgroundColor: "linear-gradient(to bottom left, #8b5cf6, #3b82f6)", // hover:bg-gradient-to-bl
+      hoverBackgroundColor: "linear-gradient(to bottom left, #8b5cf6, #3b82f6)", 
       hoverTextColor: "#ffffff",
       hoverBorderColor: "transparent",
       hoverShadow: "none",
@@ -114,8 +114,8 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       paddingY: 10,
       borderRadius: 12,
       fontSize: 14,
-      fontWeight: 500,
-      backgroundColor: "rgba(255, 255, 255, 0.1)", // frosted glass effect
+      fontWeight: 500,  
+      backgroundColor: "rgba(255, 255, 255, 0.1)", 
       textColor: "#e0e0e0",
       borderWidth: 1,
       borderColor: "rgba(255, 255, 255, 0.2)",
@@ -127,8 +127,8 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       hoverEffect: true,
       hoverBackgroundColor: "rgba(255, 255, 255, 0.15)",
       hoverTextColor: "#ffffff",
-      hoverBorderColor: "#8b5cf6", // violet glow
-      hoverShadow: "0 0 12px #8b5cf6", // outer glow effect
+      hoverBorderColor: "#8b5cf6", 
+      hoverShadow: "0 0 12px #8b5cf6", 
       hoverTransform: "none",
 
       transitionDuration: 300,
@@ -148,10 +148,10 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       borderRadius: 8,
       fontSize: 14,
       fontWeight: 600,
-      backgroundColor: "#0f172a", // slate-900
+      backgroundColor: "#0f172a", 
       textColor: "#ffffff",
       borderWidth: 1,
-      borderColor: "#1e293b", // slate-800
+      borderColor: "#1e293b", 
   
       shadow: "custom",
       customShadow: "0px 2px 4px rgba(0, 0, 0, 0.4)",
@@ -160,7 +160,7 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       hoverEffect: true,
       hoverBackgroundColor: "#1e293b",
       hoverTextColor: "#ffffff",
-      hoverBorderColor: "#334155", // slate-700
+      hoverBorderColor: "#334155", 
       hoverShadow: "0px 6px 20px rgba(0, 0, 0, 0.6)",
       hoverTransform: "translateY(-2px)",
   
@@ -211,19 +211,19 @@ const templates: Array<{ name: string; config: ButtonConfig }> = [
       borderRadius: 9999,
       fontSize: 14,
       fontWeight: 600,
-      backgroundColor: "#fcd34d", // yellow-300
+      backgroundColor: "#fcd34d", 
       textColor: "#000000",
       borderWidth: 2,
-      borderColor: "#facc15", // yellow-400
+      borderColor: "#facc15", 
   
       shadow: "custom",
       customShadow: "0px 0px 0px rgba(0,0,0,0)",
   
       transform: "none",
       hoverEffect: true,
-      hoverBackgroundColor: "#a78bfa", // violet-400
+      hoverBackgroundColor: "#a78bfa", 
       hoverTextColor: "#ffffff",
-      hoverBorderColor: "#8b5cf6", // violet-500
+      hoverBorderColor: "#8b5cf6", 
       hoverShadow: "0 4px 12px rgba(139, 92, 246, 0.4)",
       hoverTransform: "scale(1.05)",
   
@@ -560,12 +560,12 @@ export function TemplateSelector({ onTemplateSelect }: TemplateSelectorProps) {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            {/* Preview */}
+            
             <div className="flex justify-center p-4 bg-gray-50 rounded-lg">
               {renderPreviewButton(template.config)}
             </div>
 
-            {/* Select Button */}
+            
             <Button
               variant="outline"
               size="sm"

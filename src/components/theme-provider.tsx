@@ -46,13 +46,13 @@ export function ThemeProvider({
   useEffect(() => {
     const root = window.document.documentElement;
 
-    // Add theme transition class
+    
     root.classList.add("theme-transition");
 
-    // Remove existing theme classes
+   
     root.classList.remove("light", "dark");
 
-    // Small delay to ensure the transition is applied
+    
     requestAnimationFrame(() => {
       if (theme === "system") {
         const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
