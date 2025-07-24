@@ -169,12 +169,22 @@ function generateInlineStyles(config: ButtonConfig): Record<string, string> {
     borderRadius: `${config.borderRadius}px`,
     fontSize: `${config.fontSize}px`,
     fontWeight: config.fontWeight.toString(),
-    backgroundColor: config.backgroundColor,
     color: config.textColor,
     cursor: config.disabled ? 'not-allowed' : 'pointer',
     opacity: config.disabled ? '0.5' : '1',
     transition: `all ${config.transitionDuration}ms ${config.transitionTimingFunction} ${config.transitionDelay}ms`,
   };
+
+  // Handle background based on type
+  if (config.backgroundType === 'gradient') {
+    if (config.gradientBackground) {
+      styles.background = config.gradientBackground;
+    } else {
+      styles.backgroundColor = config.backgroundColor;
+    }
+  } else {
+    styles.backgroundColor = config.backgroundColor;
+  }
 
   // Border
   if (config.borderWidth > 0) {
@@ -203,19 +213,27 @@ function generateHoverStyles(config: ButtonConfig): Record<string, string> {
 
   const styles: Record<string, string> = {};
 
-  if (config.hoverBackgroundColor) {
-    styles.backgroundColor = config.hoverBackgroundColor;
+  // Handle background based on type
+  if (config.hoverBackgroundType === 'gradient') {
+    if (config.hoverGradientBackground) {
+      styles.background = config.hoverGradientBackground;
+    }
+  } else {
+    // Solid background
+    if (config.hoverBackgroundColor) {
+      styles.backgroundColor = config.hoverBackgroundColor;
+    }
   }
 
   if (config.hoverTextColor) {
     styles.color = config.hoverTextColor;
   }
 
-  if (config.hoverBorderColor && config.borderWidth > 0) {
+  if (config.hoverBorderColor) {
     styles.borderColor = config.hoverBorderColor;
   }
 
-  if (config.hoverTransform && config.hoverTransform !== 'none') {
+  if (config.hoverTransform && config.hoverTransform !== 'none' && config.hoverTransform.trim() !== '') {
     styles.transform = config.hoverTransform;
   }
 
