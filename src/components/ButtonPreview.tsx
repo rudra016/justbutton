@@ -12,9 +12,9 @@ interface ButtonPreviewProps {
 
 export function ButtonPreview({ config }: ButtonPreviewProps) {
   const [copied, setCopied] = useState(false);
-  const [exportType, setExportType] = useState<"react" | "html" | "css">(
-    "react"
-  );
+  const [exportType, setExportType] = useState<
+    "react" | "html" | "css" | "tailwind"
+  >("react");
   const clickSoundsRef = useRef<HTMLAudioElement[]>([]);
 
   useEffect(() => {
@@ -152,7 +152,7 @@ export function ButtonPreview({ config }: ButtonPreviewProps) {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex space-x-2">
-            {(["react", "html", "css"] as const).map((type) => (
+            {(["react", "html", "css", "tailwind"] as const).map((type) => (
               <Button
                 key={type}
                 variant={exportType === type ? "default" : "outline"}
@@ -225,6 +225,12 @@ export function ButtonPreview({ config }: ButtonPreviewProps) {
               <p>• Copy the CSS code above</p>
               <p>• Add it to your stylesheet</p>
               <p>• Apply the .custom-button class to your button elements</p>
+            </div>
+          )}
+          {exportType === "tailwind" && (
+            <div>
+              <p>• Copy the Tailwind code above</p>
+              <p>• Apply it to your button</p>
             </div>
           )}
         </CardContent>

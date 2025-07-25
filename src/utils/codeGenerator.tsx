@@ -1,6 +1,6 @@
 import { ButtonConfig } from '@/app/page';
 
-export function generateButtonCode(config: ButtonConfig, exportType: 'react' | 'html' | 'css'): string {
+export function generateButtonCode(config: ButtonConfig, exportType: 'react' | 'html' | 'css' | 'tailwind'): string {
   switch (exportType) {
     case 'react':
       return generateReactCode(config);
@@ -8,6 +8,8 @@ export function generateButtonCode(config: ButtonConfig, exportType: 'react' | '
       return generateHTMLCode(config);
     case 'css':
       return generateCSSCode(config);
+    case 'tailwind':
+      return `className="${generateTailwindClasses(config)}"`;
     default:
       return '';
   }
@@ -150,18 +152,138 @@ ${Object.entries(hoverStyles).map(([key, value]) => `  ${camelToKebab(key)}: ${v
 }
 
 function generateTailwindClasses(config: ButtonConfig): string {
-  const classes = [];
-  
-  // Base classes
-  classes.push('inline-flex', 'items-center', 'justify-center', 'font-medium', 'focus:outline-none', 'focus:ring-2', 'focus:ring-offset-2');
-  
-  // Conditional classes based on config
+  const classes: string[] = [];
+
+  // Base
+  classes.push('inline-flex', 'items-center', 'justify-center', 'focus:outline-none', 'focus:ring-2', 'focus:ring-offset-2');
+
+  // Padding
+  if (config.paddingX === config.paddingY) {
+    const px = Math.round(config.paddingX / 4);
+    if (px) classes.push(`p-${px}`);
+  } else {
+    if (config.paddingY) classes.push(`py-${Math.round(config.paddingY / 4)}`);
+    if (config.paddingX) classes.push(`px-${Math.round(config.paddingX / 4)}`);
+  }
+
+  // Font size
+  if (config.fontSize) {
+    if (config.fontSize <= 12) classes.push('text-xs');
+    else if (config.fontSize <= 14) classes.push('text-sm');
+    else if (config.fontSize <= 16) classes.push('text-base');
+    else if (config.fontSize <= 18) classes.push('text-lg');
+    else if (config.fontSize <= 24) classes.push('text-xl');
+    else classes.push('text-2xl');
+  }
+
+  // Font weight
+  if (config.fontWeight) {
+    classes.push(`font-[${config.fontWeight}]`);
+  }
+
+  // Border radius
+  if (config.borderRadius !== undefined) {
+    if (config.borderRadius === 0) classes.push('rounded-none');
+    else if (config.borderRadius <= 4) classes.push('rounded-sm');
+    else if (config.borderRadius <= 8) classes.push('rounded');
+    else if (config.borderRadius <= 16) classes.push('rounded-md');
+    else if (config.borderRadius <= 999) classes.push('rounded-full');
+    else classes.push(`rounded-[${config.borderRadius}px]`);
+  }
+
+  // Border
+  if (config.borderWidth && config.borderWidth > 0) {
+    if (config.borderWidth === 1) classes.push('border');
+    else classes.push(`border-[${config.borderWidth}px]`);
+    if (config.borderColor) {
+      if (config.borderColor.startsWith('#')) {
+        classes.push(`border-[${config.borderColor}]`);
+      } else {
+        classes.push(`border-[${config.borderColor}]`);
+      }
+    }
+  } else {
+    classes.push('border-0');
+  }
+
+  // Background
+  if (config.backgroundType === 'gradient' && config.gradientBackground) {
+    classes.push('bg-gradient-to-r'); // fallback, direction not in config
+    // Try to extract from gradient string
+    // No direct Tailwind class for custom gradients, so output as comment
+    classes.push(`[background:${config.gradientBackground}]`);
+  } else if (config.backgroundColor) {
+    if (config.backgroundColor.startsWith('#')) {
+      classes.push(`bg-[${config.backgroundColor}]`);
+    } else {
+      classes.push(`bg-[${config.backgroundColor}]`);
+    }
+  }
+
+  // Text color
+  if (config.textColor) {
+    if (config.textColor.startsWith('#')) {
+      classes.push(`text-[${config.textColor}]`);
+    } else {
+      classes.push(`text-[${config.textColor}]`);
+    }
+  }
+
+  // Shadow
+  if (config.customShadow) {
+    classes.push(`shadow-[${config.customShadow}]`);
+  } else if (config.shadow && config.shadow !== 'none') {
+    classes.push(`shadow-${config.shadow}`);
+  }
+
+  // Transform
+  if (config.transform && config.transform !== 'none') {
+    classes.push(`[transform:${config.transform}]`);
+  }
+
+  // Transition
+  if (config.transitionDuration) {
+    classes.push(`duration-[${config.transitionDuration}ms]`);
+  }
+  if (config.transitionTimingFunction) {
+    classes.push(`ease-[${config.transitionTimingFunction}]`);
+  }
+  if (config.transitionDelay) {
+    classes.push(`delay-[${config.transitionDelay}ms]`);
+  }
+
+  // Disabled
   if (config.disabled) {
     classes.push('cursor-not-allowed', 'opacity-50');
+  } else {
+    classes.push('cursor-pointer');
   }
-  
+
+  // Hover (basic support)
+  if (config.hoverEffect) {
+    if (config.hoverBackgroundType === 'gradient' && config.hoverGradientBackground) {
+      classes.push('hover:bg-gradient-to-r');
+      classes.push(`hover:[background:${config.hoverGradientBackground}]`);
+    } else if (config.hoverBackgroundColor) {
+      classes.push(`hover:bg-[${config.hoverBackgroundColor}]`);
+    }
+    if (config.hoverTextColor) {
+      classes.push(`hover:text-[${config.hoverTextColor}]`);
+    }
+    if (config.hoverBorderColor) {
+      classes.push(`hover:border-[${config.hoverBorderColor}]`);
+    }
+    if (config.hoverTransform) {
+      classes.push(`hover:[transform:${config.hoverTransform}]`);
+    }
+    if (config.hoverShadow) {
+      classes.push(`hover:shadow-[${config.hoverShadow}]`);
+    }
+  }
+
   return classes.join(' ');
 }
+
 
 function generateInlineStyles(config: ButtonConfig): Record<string, string> {
   const styles: Record<string, string> = {
