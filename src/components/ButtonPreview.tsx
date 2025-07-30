@@ -6,6 +6,8 @@ import { Copy, Download } from "lucide-react";
 import { useState } from "react";
 import { generateButtonCode } from "@/utils/codeGenerator";
 import { useRef, useEffect } from "react";
+import Lenis from "lenis";
+
 interface ButtonPreviewProps {
   config: ButtonConfig;
 }
@@ -16,6 +18,27 @@ export function ButtonPreview({ config }: ButtonPreviewProps) {
     "react" | "html" | "css" | "tailwind"
   >("react");
   const clickSoundsRef = useRef<HTMLAudioElement[]>([]);
+
+  const [lenisRef, setLenisRef] = useState<Lenis | null>(null);
+  const [rafState, setRaf] = useState<number | null>(null)
+  useEffect(()=>{
+    const scroller = new Lenis();
+    let rf;
+    function raf(time: number){
+      scroller.raf(time);
+      requestAnimationFrame(raf);
+    }
+    rf = requestAnimationFrame(raf);
+    setRaf(rf)
+    setLenisRef(scroller)
+
+    return(()=>{
+      if(lenisRef){
+        if(rafState) cancelAnimationFrame(rafState);
+        lenisRef.destroy();
+      }
+    })
+  }, [])
 
   useEffect(() => {
     clickSoundsRef.current = [
